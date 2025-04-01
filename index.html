@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Phase Locking (2PL) - Concurrency Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>2-Phase Locking (2PL) - Concurrency Control</h1>
+        <p>Click the button to see how 2PL works.</p>
+      <h3> <b><p>Two-Phase Locking (2PL)</b></h3> is one of the most fundamental concurrency control techniques used in database management systems (DBMS) to ensure transactions are executed in a manner that maintains consistency and avoids conflicts.<br> It plays a crucial role in serializability by enforcing a locking protocol that prevents the occurrence of inconsistent states when multiple transactions access the same database concurrently. The principle behind 2PL is simple: transactions follow a two-phase rule, which consists of a growing phase and a shrinking phase. <br>In the growing phase, a transaction can acquire locks but cannot release any until it reaches the second phase. Once the transaction moves to the shrinking phase,<br> it begins to release its acquired locks and cannot obtain any new ones. This ensures that transactions do not interfere with each other unexpectedly, reducing the chances of concurrency issues such as lost updates or uncommitted reads. There are different variations of 2PL, each enhancing its functionality.<br> Strict 2PL, for example, ensures that write locks are held until a transaction commits, thereby preventing cascading rollbacks—an issue where the failure of one transaction leads to the rollback of others dependent on its data.<br> Rigorous 2PL takes it a step further by ensuring that all locks (read and write) are held until the transaction commits, further improving isolation.<br> While 2PL effectively maintains consistency, it does come with certain drawbacks, such as the potential for deadlocks, where two transactions wait indefinitely for each other to release locks.<br> To address this, deadlock detection mechanisms or timeout policies can be implemented. Despite these challenges, Two-Phase Locking remains one of the most widely used concurrency control methods in DBMS, as it provides a structured approach to handling concurrent transactions while maintaining data integrity. </p></b>
+        <img src="https://scaler.com/topics/images/two-phase-locking.webp"width=600>
+    <p>In the context of transaction processing in database management systems (DBMS), T1 typically refers to a transaction that performs a set of operations on a database, ensuring consistency and integrity of data.<br> Transactions are essential for managing concurrent operations and preventing issues such as lost updates or inconsistent reads.<br> For instance, if T1 represents a transaction that transfers money from one bank account to another, it must follow the ACID properties—Atomicity ensures that either the entire transfer occurs or none of it happens, Consistency guarantees that the total balance remains correct, Isolation ensures that the transfer isn't interrupted by another transaction, and Durability ensures that once committed,<br> the transaction remains in effect even in case of system failure. T1 may also be involved in scheduling mechanisms such as serializability, which ensures transactions execute in an order that prevents conflicts.<br> Understanding transactions like T1 is crucial for implementing reliable and efficient database systems, particularly in applications such as banking, online retail, and cloud computing</p>
+      <p><b>"T2 refers to Transaction 2 in database management systems (DBMS).</b> It is typically used to represent a second transaction in concurrency control, scheduling, or recovery scenarios when multiple transactions (e.g., T1, T2, T3) are executed simultaneously.
+        In a typical example, if T1 reads and writes a data item, T2 may perform its own operations on the same item, leading to possible conflicts such as read-write conflicts, write-write conflicts, or dirty reads. Managing transactions like T2 is crucial in ensuring proper execution order, preventing deadlocks, and maintaining serializability."</p>
+            </p> <b>:</b>
+           <br> <b>:</b><br>
+            <b>:</b><br>
+            <b>:</b><br>
+            <b>:</b><br>
+            <b>:</b><br>
+            <b>:</b><br>
+            <b>:</b><br>
+            
+            <h3>  <li><p>Conclusion for Your Blog on Two-Phase Locking (2PL)</p></li></h3>
+                Two-Phase Locking (2PL) plays a crucial role in concurrency control within database management systems, ensuring that multiple transactions can execute without disrupting data integrity. By enforcing a structured locking mechanism—through the growing and shrinking phases—2PL helps maintain serializability, preventing issues such as dirty reads, lost updates, and inconsistencies. While its variations, such as Strict 2PL and Rigorous 2PL, enhance security and stability, challenges like deadlocks still exist, requiring additional handling mechanisms. Despite its limitations, 2PL remains one of the most widely used techniques in modern database systems to manage concurrent transactions effectively.
+                Looking ahead, understanding advanced concurrency control methods, such as Timestamp Ordering and Multiversion Concurrency Control, can provide further insights into optimizing database performance. Stay tuned for my next blog, where I'll dive deeper into these techniques and their impact on transaction management!</p></li>
+    <div class="transaction">
+            <div class="box" id="t1">Transaction 1</div>
+            <div class="box" id="t2">Transaction 2</div>
+        </div>
+        <div class="lock-state" id="lockState">Waiting for action...</div>
+        <button onclick="execute2PL()">Start 2PL Simulation</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
